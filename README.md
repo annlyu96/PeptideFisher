@@ -2,11 +2,17 @@
 R implementation of peptide-level statistical testing in proteomics using Fisher’s method to combine peptide p-values. This approach avoids biases from deviant or missing peptides and improves detection of regulated or shifted proteins compared with traditional protein-level analyses.
 
 Overview
+
 This application performs:
+
 Protein-level differential analysis (Fold change + t-test)
+
 Peptide-level differential analysis
+
 Fisher’s method aggregation of top N peptides per protein
+
 Integrated ranking score calculation
+
 The method is described in:
 
 
