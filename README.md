@@ -15,6 +15,7 @@ Integrated ranking score calculation
 
 The method is described in:
 
+	
 
 Workflow
 
@@ -33,6 +34,7 @@ Run analysis
 Download ranked protein table
 
 
+	
 
 Input Requirements
 
@@ -41,6 +43,7 @@ Input Requirements
 Users must prepare cleaned and normalized datasets before upload.
 
 
+	
 Protein File Requirements
 
 The protein file must contain the following columns:
@@ -63,6 +66,7 @@ Sample columns must be numeric
 Column names are case-sensitive
 
 
+	
 
 Peptide File Requirements
 
@@ -84,6 +88,7 @@ Column names are case-sensitive
 
 
 
+	
 Output
 
 The final output table contains:
