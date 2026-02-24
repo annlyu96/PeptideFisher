@@ -17,13 +17,22 @@ The method is described in:
 
 
 Workflow
+
 Analysis steps
+
 Upload preprocessed protein-level data
+
 Upload preprocessed peptide-level data
+
 Select control and drug sample columns
+
 Select Top N peptides used for Fisher aggregation
+
 Run analysis
+
 Download ranked protein table
+
+
 
 Input Requirements
 
@@ -33,7 +42,9 @@ Users must prepare cleaned and normalized datasets before upload.
 
 
 Protein File Requirements
+
 The protein file must contain the following columns:
+
 
 | Column name         | Description               |
 | ------------------- | ------------------------- |
@@ -42,27 +53,41 @@ The protein file must contain the following columns:
 | Protein description | Protein annotation        |
 
 Additionally:
+
 At least 2 control sample columns
+
 At least 2 drug sample columns
+
 Sample columns must be numeric
+
 Column names are case-sensitive
 
 
+
 Peptide File Requirements
+
 The peptide file must contain:
+
 | Column name | Description                              |
 | ----------- | ---------------------------------------- |
 | Accession   | Protein identifier matching protein file |
 
 Additionally:
+
 At least 2 control sample columns
+
 At least 2 drug sample columns
+
 Sample columns must be numeric
+
 Column names are case-sensitive
 
 
+
 Output
+
 The final output table contains:
+
 | Column              | Description                    |
 | ------------------- | ------------------------------ |
 | Accession           | Protein ID                     |
