@@ -26,7 +26,9 @@ Run analysis
 Download ranked protein table
 
 Input Requirements
+
 ⚠️ The application does NOT perform preprocessing or filtering.
+
 Users must prepare cleaned and normalized datasets before upload.
 
 
