@@ -1,5 +1,5 @@
 # Peptide-to-protein data aggregation using Fisher’s method improves target identification in chemical proteomics 
-PeptideFisher is a specialized Shiny application designed to aggregate peptide-level statistics into protein-level significance using Fisher’s Method. It is optimized for proteomics workflows, including **Differential Expression/Solubility** and **Partial Proteolysis (AFDIP/HOLSER)**.
+###PeptideFisher is a specialized Shiny application designed to aggregate peptide-level statistics into protein-level significance using Fisher’s Method. It is optimized for proteomics workflows, including **Differential Expression/Solubility** and **Partial Proteolysis (AFDIP/HOLSER)**.###
 ---
 
 ## 📋 Table of Contents
@@ -145,3 +145,31 @@ $$\text{Score} = |\text{Directional Fold Change}| \times -\log_{10}(\text{Fisher
 Proteins are then **Ranked** based on this score, with higher scores indicating top candidates for further investigation.
 
 ---
+## Troubleshooting
+
+If you encounter issues while running the analysis, please check the following common scenarios:
+
+### **1. Validation Errors (Red Messages)**
+* **"Insufficient replicates"**: Ensure you have selected **at least 2 columns** for both Control and Drug groups in the dropdown menus. T-tests require variance, which cannot be calculated from a single sample ($n=1$).
+* **"Required columns missing"**: Double-check your file headers. The app looks for exact matches for **`Accession`**, **`Gene name`**, and **`Protein description`**.
+* **"File size limit"**: The default upload limit is **100MB**. If your file is larger, please contact the administrator to adjust the `shiny.maxRequestSize` option.
+
+### **2. Results Issues**
+* **All p-values are NA**: This happens if the intensity values across replicates are identical (zero variance) or if there are too many missing values for the t-test to perform.
+* **Progress bar is slow**: For datasets with >50,000 peptides, the "Computing peptide statistics" stage involves thousands of t-tests and may take 30–60 seconds. Please be patient.
+
+---
+
+## 📄 Contact & Citation
+
+### **How to Cite**
+If you use this tool in your research, please cite it as follows:
+> *Peptide-to-protein data aggregation using Fisher’s method improves target identification in chemical proteomics. (2026). [H Lyu, et. al], [Karolinska Institutet].*
+
+### **Contribution & Feedback**
+We welcome contributions to improve **FisherPep**!
+* **Bug Reports**: Please open an **Issue** on GitHub with a description of the error and a small sample of the data causing it.
+* **Feature Requests**: Feel free to suggest new scoring methods or visualization features.
+
+---
+
