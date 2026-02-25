@@ -16,7 +16,32 @@ To run this application locally, ensure you have **R (version 4.0+)** and the fo
 ```R
 install.packages(c("shiny", "dplyr", "readr", "readxl", "DT", "shinydashboard", "scales"))
 
+---
 
+## 📊 Data Preparation
+
+Before starting the analysis, prepare your files according to the selected mode. Note that column names are **case-sensitive**.
+
+### 1. **Expression / Solubility Mode**
+Use this for standard quantitative proteomics where you compare protein abundance changes.
+
+| Requirement | Description |
+| :--- | :--- |
+| **Peptide File** | Must contain an **`Accession`** column and numerical intensity columns for each replicate. |
+| **Protein File** | Must contain an **`Accession`** column to match with the peptide data. |
+
+### 2. **Partial Proteolysis (AFDIP / HOLSER) Mode**
+Use this for structural change analysis.
+
+| Requirement | Description |
+| :--- | :--- |
+| **Peptide File** | Must contain **`Accession`**, **`Gene name`**, and **`Protein description`** columns. |
+| **Protein File** | **Not required** for this mode (directionality is calculated from peptides). |
+
+> [!IMPORTANT]
+> **Column Format**: Ensure all intensity values are **numeric**. Missing values (NA) are allowed but will be ignored during t-test calculations.
+
+---
 
 
 
