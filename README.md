@@ -167,9 +167,9 @@ If you use this tool in your research, please cite it as follows:
 > *Peptide-to-protein data aggregation using Fisher’s method improves target identification in chemical proteomics. (2026). [H Lyu, et. al], [Karolinska Institutet].*
 
 ### **Contribution & Feedback**
-We welcome contributions to improve **FisherPep**!
+We welcome contributions to improve **PeptideFisher**!
 * **Bug Reports**: Please open an **Issue** on GitHub with a description of the error and a small sample of the data causing it.
 * **Feature Requests**: Feel free to suggest new scoring methods or visualization features.
 
 ---
-
+**Developed by [Hezheng Ann Lyu, Zubarev group]**
