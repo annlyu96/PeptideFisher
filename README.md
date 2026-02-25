@@ -15,6 +15,7 @@ To run this application locally, ensure you have **R (version 4.0+)** and the fo
 
 ```R
 install.packages(c("shiny", "dplyr", "readr", "readxl", "DT", "shinydashboard", "scales"))
+```
 
 ---
 
