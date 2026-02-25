@@ -34,15 +34,15 @@ Use this for standard quantitative proteomics where you compare protein abundanc
 
 | Requirement | Description |
 | :--- | :--- |
-| **Peptide File** | Must contain an **`Accession`**, **`Gene name`**, and **`Protein description`** columns and >2 intensity columns for each replicate. |
-| **Protein File** | Must contain an **`Accession`** column to match with the peptide data. |
+| **Peptide File** | Must contain an **`Accession`**, **`Gene name`**, and **`Protein description`** columns and >2 intensity columns for each treatment. |
+| **Protein File** | Must contain an **`Accession`** column to match with the peptide data, and >2 intensity columns for each treatment. |
 
 ### 2. **Partial Proteolysis (AFDIP / HOLSER) Mode**
 Use this for structural change analysis.
 
 | Requirement | Description |
 | :--- | :--- |
-| **Peptide File** | Must contain **`Accession`**, **`Gene name`**, and **`Protein description`** columns. |
+| **Peptide File** | Must contain **`Accession`**, **`Gene name`**, and **`Protein description`** columns, and >2 intensity columns for each treatment.. |
 | **Protein File** | **Not required** for this mode (directionality is calculated from peptides). |
 
 * **`Accession`**: Unique protein identifier.
@@ -51,8 +51,6 @@ Use this for structural change analysis.
 
 > [!TIP]
 > **Why 2+ replicates?** A minimum of 2 samples per group is statistically required to calculate the standard deviation for the Welch's T-test. If you select only one column, the app will display a validation error.
-
----
 
 ---
 
@@ -103,7 +101,6 @@ Choose the appropriate analysis mode based on your experimental design:
 
 
 ---
----
 
 ## Statistical Methodology
 
@@ -138,112 +135,13 @@ To highlight biological relevance alongside statistical significance, a final **
 
 $$\text{Score} = |\text{Directional Fold Change}| \times -\log_{10}(\text{Fisher } p\text{-value})$$
 
-* **In Expression Mode**: The "Directional Fold Change" is taken directly from the Protein File's $\log_2(\text{Fold Change})$.
-* **In Partial Mode**: The direction is determined by the majority vote of the Top N peptides' fold changes.
+* **In Expression/Solubility Mode**: The "Directional Fold Change" is taken directly from the Protein File's $\log_2(\text{Fold Change})$.
+* **In Partial Proteolysis Mode (AFDIP / HOLSER)**:
+    Since no Protein File is provided, the value is synthesized from the **Top N peptides**:
+    1.  **Direction (+/-)**: Determined by a **majority vote** of the Top N peptides' $\log_2(\text{Fold Change})$ signs. For example, if 3 peptides are positive and 1 is negative, the direction is positive ($+1$).
+    2.  **Magnitude (Value)**: Calculated as the **mean of the absolute $\log_2(\text{Fold Change})$ values** of those Top N peptides.
+    3.  **Result**: The directional fold change = $(\text{Direction}) \times (\text{Mean Absolute } \log_2\text{FC})$.
 
 Proteins are then **Ranked** based on this score, with higher scores indicating top candidates for further investigation.
 
 ---
-
-
-Overview
-
-This application performs:
-
-Protein-level differential analysis (Fold change + t-test)
-
-Peptide-level differential analysis
-
-Fisher’s method aggregation of top N peptides per protein
-
-Integrated ranking score calculation
-
-The method is described in:
-
-	
-
-Workflow
-
-Analysis steps
-
-Upload preprocessed protein-level data
-
-Upload preprocessed peptide-level data
-
-Select control and drug sample columns
-
-Select Top N peptides used for Fisher aggregation
-
-Run analysis
-
-Download ranked protein table
-
-
-	
-
-Input Requirements
-
-⚠️ The application does NOT perform preprocessing or filtering.
-
-Users must prepare cleaned and normalized datasets before upload.
-
-
-	
-Protein File Requirements
-
-The protein file must contain the following columns:
-
-
-| Column name         | Description               |
-| ------------------- | ------------------------- |
-| Accession           | Unique protein identifier |
-| Gene name           | Gene symbol               |
-| Protein description | Protein annotation        |
-
-Additionally:
-
-At least 2 control sample columns
-
-At least 2 drug sample columns
-
-Sample columns must be numeric
-
-Column names are case-sensitive
-
-
-	
-
-Peptide File Requirements
-
-The peptide file must contain:
-
-| Column name | Description                              |
-| ----------- | ---------------------------------------- |
-| Accession   | Protein identifier matching protein file |
-
-Additionally:
-
-At least 2 control sample columns
-
-At least 2 drug sample columns
-
-Sample columns must be numeric
-
-Column names are case-sensitive
-
-
-
-	
-Output
-
-The final output table contains:
-
-| Column              | Description                    |
-| ------------------- | ------------------------------ |
-| Accession           | Protein ID                     |
-| Gene name           | Gene symbol                    |
-| Protein description | Annotation                     |
-| log2FoldChange      | Protein-level fold change      |
-| -log10fisher_p      | Fisher aggregated significance |
-| score               | Combined ranking score         |
-| rank_score          | Final protein ranking          |
