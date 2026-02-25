@@ -1,5 +1,7 @@
 # Peptide-to-protein data aggregation using Fisher’s method improves target identification in chemical proteomics 
-###PeptideFisher is a specialized Shiny application designed to aggregate peptide-level statistics into protein-level significance using Fisher’s Method. It is optimized for proteomics workflows, including **Differential Expression/Solubility** and **Partial Proteolysis (AFDIP/HOLSER)**.###
+<p align="left">
+<sub><b>PeptideFisher</b> is a specialized Shiny application designed to aggregate peptide-level statistics into protein-level significance using Fisher’s Method. It is optimized for proteomics workflows, including <b>Differential Expression/Solubility</b> and <b>Partial Proteolysis (AFDIP/HOLSER)</b>.</sub>
+</p>
 ---
 
 ## 📋 Table of Contents
