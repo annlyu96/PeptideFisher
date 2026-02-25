@@ -1,5 +1,24 @@
 # Peptide-to-protein data aggregation using Fisher’s method improves target identification in chemical proteomics 
-R implementation of peptide-level statistical testing in proteomics using Fisher’s method to combine peptide p-values. This approach avoids biases from deviant or missing peptides and improves detection of regulated or shifted proteins compared with traditional protein-level analyses.
+PeptideFisher is a specialized Shiny application designed to aggregate peptide-level statistics into protein-level significance using Fisher’s Method. It is optimized for proteomics workflows, including **Differential Expression/Solubility** and **Partial Proteolysis (AFDIP/HOLSER)**.
+---
+
+## 📋 Table of Contents
+1. [Prerequisites](#-prerequisites)
+2. [Data Preparation](#-data-preparation)
+3. [Step-by-Step Workflow](#-step-by-step-workflow)
+4. [Statistical Methodology](#-statistical-methodology)
+
+---
+## 🛠 Prerequisites
+
+To run this application locally, ensure you have **R (version 4.0+)** and the following libraries installed:
+
+```R
+install.packages(c("shiny", "dplyr", "readr", "readxl", "DT", "shinydashboard", "scales"))
+
+
+
+
 
 Overview
 
